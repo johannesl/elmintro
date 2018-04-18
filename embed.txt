@@ -1,0 +1,5 @@
+Build stand alone using:
+> elm-make Static3.elm
+
+Build for embedding using:
+> elm-make Static3.elm --output app.js
