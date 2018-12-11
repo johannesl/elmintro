@@ -1,3 +1,4 @@
+import Browser
 import Html exposing (..)
 import Html.Attributes exposing (..)
 import Html.Events exposing (..)
@@ -19,8 +20,8 @@ emptyModel =
   }
 
 main =
-  beginnerProgram
-    { model = emptyModel
+  Browser.sandbox
+    { init = emptyModel
     , update = update
     , view = view
     }
@@ -55,7 +56,10 @@ update msg model =
       }
 
 view model =
-  div [ style [ ("margin","20px auto"), ("width","400px") ] ]
+  div
+    [ style "margin" "20px auto"
+    , style "width" "400px"
+    ]
     [ render model
     , textarea [ onInput NewText, value model.body ] []
     , br [] []
@@ -73,7 +77,7 @@ render model =
         Segment s ->
           p [] [ text s ]
         Image url desc ->
-          img [ src url, style [ ("height","48px") ], title desc ]
+          img [ src url, style "height" "48px", title desc ]
             [ text "Hello"
             ]
   in

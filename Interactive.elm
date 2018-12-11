@@ -1,10 +1,11 @@
+import Browser
 import Html exposing (..)
 import Html.Attributes exposing (style, src)
 import Html.Events exposing (onClick)
 
 main =
-  beginnerProgram
-    { model = 0
+  Browser.sandbox
+    { init = 0
     , update = update
     , view = view
     }
@@ -33,10 +34,8 @@ render progress i =
   let
     width = (i^1.7) * 16
     image = img
-      [ style
-        [ ("border-radius", "50%")
-        , ("width", toString(width) ++ "px")
-        ]
+      [ style "border-radius" "50%"
+      , style "width" ( String.fromFloat(width) ++ "px" )
       , src "happy-cc0.jpg"
       ]
       []

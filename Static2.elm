@@ -1,40 +1,37 @@
 import Html exposing (..)
 import Html.Attributes exposing (style, src)
 
-avatarStyle =
-  style
-    [ ("width", "96px")
-    , ("width", "96px")
-    , ("border-radius", "50%")
+avatar jpg =
+  img
+    [ src jpg
+    , style "float" "left"
+    , style "margin-right" "30px"
+    , style "width" "96px"
+    , style "width" "96px"
+    , style "border-radius" "50%"
     ]
+    []
 
 person name jpg desc =
-  div [ style [ ("min-height", "120px") ] ]
-    [ img
-      [ src jpg
-      , avatarStyle
-      , style [ ("float", "left"), ("margin-right","30px") ]
-      ]
-      []
+  div [ style "min-height" "120px" ]
+    [ avatar jpg
     , h2
-      [ style [ ("font-family", "Verdana"), ("margin-bottom", "5px") ] ]
+      [ style "font-family" "Verdana"
+      , style "margin-bottom" "5px"
+      ]
       [ text name ]
     , p
-      [ style
-        [ ("font-family", "Helvetica")
-        , ("font-weight", "200")
-        , ("margin", "0px")
-        ]
+      [ style "font-family" "Helvetica"
+      , style "font-weight" "200"
+      , style "margin" "0px"
       ]
       [ text desc ]
     ]
 
 main =
   div
-    [ style
-      [ ("width","520px")
-      , ("margin", "50px auto")
-      ]
+    [ style "width" "520px"
+    , style "margin" "50px auto"
     ]
     [ person
         "Johannes Ridderstedt"
